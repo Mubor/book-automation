@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automation</title>
+</head>
+<body>
+    <h1>Коротко о себе</h1>
+    <h2 id = "profile-name"></h2>
+    <div id="main-text"></div>
+
+    <div>
+        <a href="" id="main-inst"></a>
+    </div>
+    <div>
+        <a href="" id="secondary-inst"></a>
+    </div>
+
+    <script>
+        //setting variables
+        let fullname = "Мухатасов Борис Евгеньевич";
+        let age = 20;
+        let hobbies = ['програмирование', 'саморазвитие', 'прослушивание музыки'];
+        let hobbiesString = hobbies.join([', ']);
+        const linkInfo = {
+            'references': ['https://www.instagram.com/mukhatasov__/', 'https://www.instagram.com/_muha18_/'],
+            'descriptions': ['Основная страница','Вторичная страница']
+        };
+        const text = `<p>Мне ${age} полных лет.</p> <p>Мое хобби: ${hobbiesString}. Самое любимое - это ${hobbies[0]}, поэтому я учусь на инженера програмного обеспечения.</p><p>Ниже приведены ссылки на мой инстаграм</p>`;
+
+        //finding links for filling
+        let mainInst = document.getElementById('main-inst');
+        let secInst = document.getElementById('secondary-inst');
+
+        //filling html
+        document.getElementById('profile-name').innerHTML = fullname;
+        document.getElementById('main-text').innerHTML = text;
+        mainInst.innerHTML = linkInfo.descriptions[0];
+        secInst.innerHTML = linkInfo.descriptions[1];
+
+        //set reference from object
+        mainInst.setAttribute('href', linkInfo.references[0]);
+        secInst.setAttribute('href', linkInfo.references[1]);
+    </script>
+</body>
+</html>
